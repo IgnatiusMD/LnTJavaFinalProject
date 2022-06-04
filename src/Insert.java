@@ -14,6 +14,7 @@ public class Insert extends JFrame implements ActionListener{
 	
 	Scanner sc = new Scanner(System.in);
 	Random rand = new Random();
+	Connect db = new Connect();
 	
 	// panel
 	JPanel header = new JPanel();
@@ -31,7 +32,7 @@ public class Insert extends JFrame implements ActionListener{
 	JTextField hargaMenuText = new JTextField();
 	
 	// stockMenu
-	JLabel stockMenu = new JLabel("Stock menu: ");
+	JLabel stockMenu = new JLabel("Stok menu: ");
 	JTextField stockMenuText = new JTextField();
 	
 	// submitButton
@@ -42,7 +43,7 @@ public class Insert extends JFrame implements ActionListener{
 	
 	public void setFrame() {
 		this.setVisible(true);
-		this.setSize(400, 400);
+		this.setSize(800, 800);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("LnT Final Project");
 		this.setLocationRelativeTo(null);
@@ -52,12 +53,6 @@ public class Insert extends JFrame implements ActionListener{
 		setFrame();
 		InsertMenuTitle();
 		InsertMenuBody();
-		
-		
-		String kode = "PD-", namaMenu = "";
-		Integer harga = 0, stock = 0;
-		
-		kode = kode + rand.nextInt(9) + rand.nextInt(9) + rand.nextInt(9);
 		
 		this.add(header, BorderLayout.NORTH);
 		this.add(body, BorderLayout.CENTER);
@@ -98,10 +93,25 @@ public class Insert extends JFrame implements ActionListener{
 			new MainMenu();
 			setVisible(false);
 		} else if (e.getSource().equals(submitButton)) {
+			submit();
 			namaMenuText.setText(null);
 			hargaMenuText.setText(null);
 			stockMenuText.setText(null);
+			new MainMenu();
+			setVisible(false);
 		}
+	}
+
+	public void submit() {
+		String kode = "PD-";
+		String nama = namaMenuText.getText();
+		String harga = hargaMenuText.getText();
+		String stok = stockMenuText.getText();
+		
+		kode = kode + rand.nextInt(9) + rand.nextInt(9) + rand.nextInt(9);
+		
+		db.insertData(kode, nama, harga, stok);
+		JOptionPane.showMessageDialog(this, "Data baru telah dimasukkan!");
 	}
 
 }

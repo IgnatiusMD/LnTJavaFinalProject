@@ -21,7 +21,7 @@ public class MainMenu extends JFrame implements ActionListener{
 	
 	public void setFrame() {
 		this.setVisible(true);
-		this.setSize(400, 400);
+		this.setSize(800, 800);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("LnT Final Project");
 		this.setLocationRelativeTo(null);
@@ -49,22 +49,22 @@ public class MainMenu extends JFrame implements ActionListener{
 		
 		insertMenu = new JButton("Insert");
 		insertMenu.setForeground(Color.decode("#104A00"));
-		insertMenu.setPreferredSize(new Dimension(150, 30));
+//		insertMenu.setPreferredSize(new Dimension(150, 30));
 		insertMenu.addActionListener(this);
 		
 		viewMenu = new JButton("View");
 		viewMenu.setForeground(Color.decode("#104A00"));
-		viewMenu.setPreferredSize(new Dimension(150, 30));
+//		viewMenu.setPreferredSize(new Dimension(150, 30));
 		viewMenu.addActionListener(this);
 		
 		updateMenu = new JButton("Update");
 		updateMenu.setForeground(Color.decode("#104A00"));
-		updateMenu.setPreferredSize(new Dimension(150, 30));
+//		updateMenu.setPreferredSize(new Dimension(150, 30));
 		updateMenu.addActionListener(this);
 		
 		deleteMenu = new JButton("Delete");
 		deleteMenu.setForeground(Color.decode("#104A00"));
-		deleteMenu.setPreferredSize(new Dimension(150, 30));
+//		deleteMenu.setPreferredSize(new Dimension(150, 30));
 		deleteMenu.addActionListener(this);
 		
 		body.add(insertMenu);
